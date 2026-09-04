@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.selenium_testNG_project</groupId>
+	<artifactId>Selenium_TestNG_Project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<!-- compiler — built-in Maven property -->
+		<maven.compiler.release>21</maven.compiler.release>
+
+		<!-- dependency versions — all custom properties -->
+		<selenium.version>4.47.0</selenium.version>
+		<testng.version>7.11.0</testng.version>
+		<slf4j-simple.version>2.0.12</slf4j-simple.version>
+		<extentreports.version>5.0.9</extentreports.version>
+		<!-- plugin versions — also custom properties -->
+		<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+		<maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Selenium -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Logging and log4j-core -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j-simple.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.25.3</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<!-- Compiler: fix — removed redundant source/target inside config
+			block -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+			</plugin>
+
+			<!-- Surefire (Runs TestNG + Cucumber Runner) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<!--<systemPropertyVariables>
+						<browser>${browser}</browser>
+						<env>${env}</env>
+						<cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
+					</systemPropertyVariables>-->
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+
+	</build>
+</project>
