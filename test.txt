@@ -1,4 +1,2 @@
 text inside file modified
-changes in staging
-changes in working copy
-local changes
+
