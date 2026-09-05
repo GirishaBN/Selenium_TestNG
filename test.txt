@@ -1,2 +1,3 @@
 text inside file modified
-local changes
+remote changes
+done by some one
