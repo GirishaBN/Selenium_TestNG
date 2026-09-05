@@ -2,3 +2,4 @@ text inside file modified
 added text in master
 Master branch text for commit
 Welcome to feature
+changes in master
